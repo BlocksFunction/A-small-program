@@ -16,7 +16,7 @@ void sleep(int time) {clock_t head = clock();while (clock() - head <= time) { }}
 int main()
 {
   srand((unsigned)time(NULL));
-  printf("æ¬¢è¿Žä½¿ç”¨Program ç‰ˆæœ¬å·:0.0.0.1 Alpha\n");
+  printf("»¶Ó­Ê¹ÓÃProgram °æ±¾ºÅ:0.0.0.1 Alpha\n");
   sleep(1000);
   const char* str = "|/-\\";
   char bar[102];
@@ -24,18 +24,32 @@ int main()
   for (int i = 0; i <= 100;)
   {
     srand((unsigned)time(NULL));
-    printf("[%-100s][%d%%][%c]\r", bar, i, str[i % 4]); // æ ¼å¼æŽ§åˆ¶
-    fflush(stdout); // åˆ·æ–°
-    bar[i++] = '#'; // å¡«å……æ•°æ®
-    sleep(rand() % 50); // ä¼‘çœ 
+    printf("[%-100s][%d%%][%c]\r", bar, i, str[i % 4]); // ¸ñÊ½¿ØÖÆ
+    fflush(stdout); // Ë¢ÐÂ
+    bar[i++] = '#'; // Ìî³äÊý¾Ý
+    sleep(rand() % 50); // ÐÝÃß
   }
   sleep(1000);
   time_t ntime = time(0);
   printf("\33c");
-  printf("çŽ°åœ¨çš„æ—¶é—´ä¸º %s\n", ctime(&ntime));
+  printf("ÏÖÔÚµÄÊ±¼äÎª %s\n", ctime(&ntime));
   sleep(1500);
   printf("\33c");
-  printf("è¯·è¾“å…¥æ‚¨æƒ³è¦ä½¿ç”¨çš„åŠŸèƒ½\n\n");
-  printf("-> 1. æ–‡æœ¬ç¼–è¾‘å™¨ <-");
-  while (1){}
+  while (1)
+  {
+      int command;
+      printf("ÇëÊäÈëÄúÏëÒªÊ¹ÓÃµÄ¹¦ÄÜ\n\n");
+      printf("-> 1. ÎÄ±¾±à¼­Æ÷ <-\n\n");
+      printf("-> 2. ÍË³ö <-\n\n");
+      scanf("%d", command);
+      if (command == 1)
+      {
+          printf("ÕýÔÚ¿ª·¢ÖÐ...");
+      }
+      if (command == 2)
+      {
+          exit(0);
+      }
+  }
+  return 0;
 }
