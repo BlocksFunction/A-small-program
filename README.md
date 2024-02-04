@@ -21,3 +21,8 @@ gcc main.cpp
 linux：
 -----------------
 同windows
+
+开发人员名单
+=================
+[AuroraRealm](https://github.com/AuroraRealm)
+[lilies0823](https://github.com/lilies0823)
