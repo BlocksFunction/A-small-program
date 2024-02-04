@@ -35,7 +35,21 @@ int main()
   printf("现在的时间为 %s\n", ctime(&ntime));
   sleep(1500);
   printf("\33c");
-  printf("请输入您想要使用的功能\n\n");
-  printf("-> 1. 文本编辑器 <-");
-  while (1){}
+  while (1)
+  {
+      int command;
+      printf("请输入您想要使用的功能\n\n");
+      printf("-> 1. 文本编辑器 <-\n\n");
+      printf("-> 2. 退出 <-\n\n");
+      scanf("%d", command);
+      if (command == 1)
+      {
+          printf("正在开发中...\n\n");
+      }
+      if (command == 2)
+      {
+          exit(0);
+      }
+  }
+  return 0;
 }
