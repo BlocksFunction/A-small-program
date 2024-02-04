@@ -1,0 +1,2 @@
+exe:
+	gcc main.cpp
