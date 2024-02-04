@@ -4,8 +4,10 @@
 =================
 Windows：
 -----------------
-`make`
-或
+`make`  
+
+或  
+
 `gcc main.cpp`
 
 linux：
