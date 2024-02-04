@@ -4,12 +4,20 @@
 =================
 Windows：
 -----------------
-`make`  
-
-或  
-
-`gcc main.cpp`
-
+### 方法一（推荐）
+在终端输入以下命令：
+```
+git clone https://github.com/AuroraRealm/A-small-program.git
+cd A-small-program
+make
+```
+### 方法二
+如果你没有make的话，在终端输入以下命令：
+```
+git clone https://github.com/AuroraRealm/A-small-program.git
+cd A-small-program
+gcc main.cpp
+```
 linux：
 -----------------
 同windows
