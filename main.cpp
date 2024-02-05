@@ -44,13 +44,13 @@ int main()
   {
       int command;
       printf("请输入您想要使用的功能\n\n");
-      printf(" 1. 文本编辑器 \n\n");
+      printf(" 1. 计算器 \n\n");
       printf(" 2. 退出 \n\n");
       // printf("请使用↑与↓和enter来选择或执行命令\n");
       scanf("%d", command);
       if (command == 1)
       {
-          printf("正在开发中...\n\n");
+          system("start dist\\calc.exe");
       }
       if (command == 2)
       {
