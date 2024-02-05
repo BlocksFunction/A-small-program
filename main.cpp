@@ -11,6 +11,11 @@
 #include <stdlib.h>
 #include <iostream>
 
+// 移动光标
+#define CurMove(x,y) printf("\033[%d;%dH",(x),(y))
+// 清屏
+#define Clean() printf("\33c");
+
 void sleep(int time) {clock_t head = clock();while (clock() - head <= time) { }}
 
 int main()
@@ -31,16 +36,17 @@ int main()
   }
   sleep(1000);
   time_t ntime = time(0);
-  printf("\33c");
+  Clean();
   printf("现在的时间为 %s\n", ctime(&ntime));
   sleep(1500);
-  printf("\33c");
+  Clean();
   while (1)
   {
       int command;
       printf("请输入您想要使用的功能\n\n");
-      printf("-> 1. 文本编辑器 <-\n\n");
-      printf("-> 2. 退出 <-\n\n");
+      printf(" 1. 文本编辑器 \n\n");
+      printf(" 2. 退出 \n\n");
+      // printf("请使用↑与↓和enter来选择或执行命令\n");
       scanf("%d", command);
       if (command == 1)
       {
@@ -51,5 +57,6 @@ int main()
           exit(0);
       }
   }
+  while (true){//no exit防退出 我的Vscode不能看结果}
   return 0;
-}
+} 
