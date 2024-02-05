@@ -16,7 +16,7 @@ make
 ```
 git clone https://github.com/AuroraRealm/A-small-program.git
 cd A-small-program
-gcc main.cpp
+gcc -o3 -o2 main.cpp
 ```
 linux：
 -----------------
