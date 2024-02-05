@@ -57,6 +57,6 @@ int main()
           exit(0);
       }
   }
-  while (true){//no exit防退出 我的Vscode不能看结果}
+  while (true){}//no exit防退出 我的Vscode不能看结果
   return 0;
 } 
