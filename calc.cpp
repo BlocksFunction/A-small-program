@@ -30,7 +30,7 @@ int main() {
     
     for (int i = 0; i < b.size(); ++i) {   //处理二级运算
         if (typeid(b[i]) == typeid(std::string)) {
-            if (b[i] == "+" || b[i] == "-") {
+            if (b[i] == '+' || b[i] == '-') {
                 if (i == 1 && b.size() - 1 - i != 1) {
                     c.push_back(b[i - 1]);
                 } else if (i != 1 && b.size() - 1 - i == 1) {
@@ -44,7 +44,7 @@ int main() {
                 }
                 c.push_back(b[i]);
             }
-            if (b[i] == "*" || b[i] == "/") {
+            if (b[i] == '*' || b[i] == '/') {
                 if (b[i] == '*') {
                     c.push_back(b[i - 1] * b[i + 1]);
                 } else {
@@ -57,8 +57,8 @@ int main() {
     
     for (int i = 0; i < c.size(); ++i) {                     //处理一级运算
         if (typeid(c[i]) == typeid(std::string)) {
-            if (c[i] == "+" || c[i] == "-") {
-                if (c[i] == "+") {
+            if (c[i] == '+' || c[i] == '-') {
+                if (c[i] == '+') {
                     j += c[i + 1];
                 } else {
                     j -= c[i + 1];
