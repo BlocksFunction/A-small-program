@@ -44,19 +44,21 @@ int main()
   {
       int command;
       printf("请输入您想要使用的功能\n\n");
-      printf(" 1. 文本编辑器 \n\n");
+      printf(" 1. 计算器 \n\n");
       printf(" 2. 退出 \n\n");
       // printf("请使用↑与↓和enter来选择或执行命令\n");
       scanf("%d", command);
       if (command == 1)
       {
-          printf("正在开发中...\n\n");
+          //不知道为什么，代码运行到这里是会退出，防退出也没有效果，我把这行换成其他的也没用，那干脆就把这行给删了吧
       }
       if (command == 2)
       {
           exit(0);
       }
   }
-  while (true){}/*no exit防退出 我的Vscode不能看结果*/
+
+  while (true){}//no exit防退出 我的Vscode不能看结果
   return 0;
-}
+} 
+
