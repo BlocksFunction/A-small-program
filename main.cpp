@@ -22,7 +22,7 @@ int main()
 {
   srand((unsigned)time(NULL));
   printf("欢迎使用Program 版本号:0.0.0.1 Alpha\n");
-  sleep(1000);
+  sleep(1005);
   const char* str = "|/-\\";
   char bar[102];
   memset(bar, '\0', sizeof(bar));
