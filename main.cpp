@@ -42,17 +42,18 @@ int main()
   Clean();
   while (1)
   {
-      int command;
+      char command;
       printf("请输入您想要使用的功能\n\n");
       printf(" 1. 计算器 \n\n");
       printf(" 2. 退出 \n\n");
       // printf("请使用↑与↓和enter来选择或执行命令\n");
-      scanf("%d", command);
-      if (command == 1)
+      scanf("%s", command);
+      if (command == '1')
       {
-          //不知道为什么，代码运行到这里是会退出，防退出也没有效果，我把这行换成其他的也没用，那干脆就把这行给删了吧
+        //不知道为什么，代码运行到这里是会退出，防退出也没有效果，我把这行换成其他的也没用，那干脆就把这行给删了吧
+        //现在我知道是什么原因了，代码运行到这里就会疯狂输出上面printf的内容，但是不知道咋解决
       }
-      if (command == 2)
+      if (command == '2')
       {
           exit(0);
       }
