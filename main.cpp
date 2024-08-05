@@ -10,6 +10,7 @@
 #include <ctime>
 #include <stdlib.h>
 #include <iostream>
+#include <windows.h>
 
 // 移动光标
 #define CurMove(x,y) printf("\033[%d;%dH",(x),(y))
@@ -40,8 +41,7 @@ int main()
   printf("现在的时间为 %s\n", ctime(&ntime));
   sleep(1500);
   Clean();
-  while (1)
-  {
+  //我干脆把循环给删了吧
       char command;
       printf("请输入您想要使用的功能\n\n");
       printf(" 1. 计算器 \n\n");
@@ -50,14 +50,13 @@ int main()
       scanf("%s", command);
       if (command == '1')
       {
-        //不知道为什么，代码运行到这里是会退出，防退出也没有效果，我把这行换成其他的也没用，那干脆就把这行给删了吧
-        //现在我知道是什么原因了，代码运行到这里就会疯狂输出上面printf的内容，但是不知道咋解决
+        WinExec("calc",SW_SHOW);//当calc.py被编译时，该代码会运行由此编译的calc.exe，否则会运行win自带的计算器
       }
       if (command == '2')
       {
           exit(0);
       }
-  }
+  
 
   while (true){}//no exit防退出 我的Vscode不能看结果
   return 0;
