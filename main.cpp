@@ -11,6 +11,9 @@
 #include <stdlib.h>
 #include <iostream>
 #include <windows.h>
+#include <conio.h>
+ 
+using namespace std;
 
 // 移动光标
 #define CurMove(x,y) printf("\033[%d;%dH",(x),(y))
@@ -47,15 +50,24 @@ int main()
       printf(" 1. 计算器 \n\n");
       printf(" 2. 退出 \n\n");
       // printf("请使用↑与↓和enter来选择或执行命令\n");
-      scanf("%s", command);
-      if (command == '1')
-      {
-        WinExec("calc",SW_SHOW);//当calc.py被编译时，该代码会运行由此编译的calc.exe，否则会运行win自带的计算器
-      }
-      if (command == '2')
-      {
-          exit(0);
-      }
+      while (1){
+        if (kbhit()){
+          int ch;
+            ch = getch();
+            if (ch == 27){ break; }
+            if (ch == 49)WinExec("calc",SW_SHOW);
+            if (ch == 50)exit(0);
+        }
+    }
+      
+      if (command-'0' == 1)WinExec("calc",SW_SHOW);
+      
+        //当calc.py被编译时，该代码会运行由此编译的calc.exe，否则会运行win自带的计算器
+      
+      if (command-'0' == 2)exit(0);
+    
+          
+      
   
 
   while (true){}//no exit防退出 我的Vscode不能看结果
