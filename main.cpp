@@ -1,76 +1,60 @@
-/*
- * @Author: AuroraRealm 3398817447@qq.com
- * @Date: 2024-02-03 17:42:31
- * @LastEditors: AuroraRealm 3398817447@qq.com
- * @LastEditTime: 2024-02-03 18:04:01
- * @FilePath: \A-small-program\main.cpp
- */
-#include <stdio.h>
+#include <cstdio>
 #include <cstring>
-#include <ctime>
-#include <stdlib.h>
-#include <iostream>
-#include <windows.h>
-#include <conio.h>
- 
-using namespace std;
+#include <map>
+#include <random>
+#include <thread>
 
-// 移动光标
-#define CurMove(x,y) printf("\033[%d;%dH",(x),(y))
-// 清屏
 #define Clean() printf("\33c");
 
-void sleep(int time) {clock_t head = clock();while (clock() - head <= time) { }}
+struct Comap {};
 
-int main()
-{
-  srand((unsigned)time(NULL));
+auto sleep(int time) -> void {
+  std::this_thread::sleep_for(std::chrono::milliseconds(time));
+}
+
+auto nowtm() -> char * {
+  std::chrono::time_point time = std::chrono::system_clock::now();
+  time_t nowtime = std::chrono::system_clock::to_time_t(time);
+  struct tm *locate = localtime(&nowtime);
+  static char crte[9];
+  sprintf(crte, "%02d:%02d:%02d", locate->tm_hour, locate->tm_min,
+          locate->tm_sec);
+  return crte;
+}
+
+auto calc() -> void {
+  printf("HelloWorld");
+  return;
+}
+
+auto main() -> int {
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_real_distribution<> *radn =
+      new std::uniform_real_distribution<>(0, 100);
   printf("欢迎使用Program 版本号:0.0.0.1 Alpha\n");
-  sleep(1005);
-  const char* str = "|/-\\";
-  char bar[102];
-  memset(bar, '\0', sizeof(bar));
-  for (int i = 0; i <= 100;)
-  {
+  char *bar = new char[102];
+  memset(bar, '\0', sizeof(*bar));
+  for (int i = 0; i <= 100;) {
     srand((unsigned)time(NULL));
-    printf("[%-100s][%d%%][%c]\r", bar, i, str[i % 4]); // 格式控制
-    fflush(stdout); // 刷新
-    bar[i++] = '#'; // 填充数据
-    sleep(rand() % 50); // 休眠
+    printf("[%-100s][%d%%][%c]\r", bar, i, "|/-\\"[i % 4]); // 格式控制
+    fflush(stdout);                                         // 刷新
+    bar[i++] = '#';                                         // 填充数据
+    sleep(static_cast<int>((*radn)(gen)));                  // 休眠
   }
+  delete radn;
+  delete[] bar;
   sleep(1000);
-  time_t ntime = time(0);
   Clean();
-  printf("现在的时间为 %s\n", ctime(&ntime));
+  printf("现在的时间为 %s\n", nowtm());
   sleep(1500);
   Clean();
-  //我干脆把循环给删了吧
-      char command;
-      printf("请输入您想要使用的功能\n\n");
-      printf(" 1. 计算器 \n\n");
-      printf(" 2. 退出 \n\n");
-      // printf("请使用↑与↓和enter来选择或执行命令\n");
-      while (1){
-        if (kbhit()){
-          int ch;
-            ch = getch();
-            if (ch == 27){ break; }
-            if (ch == 49)WinExec("calc",SW_SHOW);
-            if (ch == 50)exit(0);
-        }
-    }
-      
-      if (command-'0' == 1)WinExec("calc",SW_SHOW);
-      
-        //当calc.py被编译时，该代码会运行由此编译的calc.exe，否则会运行win自带的计算器
-      
-      if (command-'0' == 2)exit(0);
-    
-          
-      
-  
-
-  while (true){}//no exit防退出 我的Vscode不能看结果
+  // 我干脆把循环给删了吧
+  char command[20];
+  printf("请输入您想要使用的功能\n\n");
+  printf(" 计算器(calc) \n\n");
+  printf(" 2. 退出(exit) \n\n");
+  scanf("%s", command);
+  ComMap[command]();
   return 0;
-} 
-
+}
